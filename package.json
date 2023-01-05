@@ -1,0 +1,23 @@
+{
+  "name": "isomof",
+  "version": "1.0.0",
+  "author": "ogarich89@icloud.com",
+  "private": true,
+  "engines": {
+    "node": "^18.12.1"
+  },
+  "workspaces": [
+    "shell",
+    "remote"
+  ],
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.8.1"
+  }
+}
