@@ -21,6 +21,9 @@ export default merge(common(), {
   context: resolve(__dirname, '../../src'),
   entry: './index.ts',
   devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
     allowedHosts: 'all',
     static: {
       directory: resolve(__dirname, '../../dist'),

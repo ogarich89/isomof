@@ -9,7 +9,7 @@ const serverCompiler = webpack(webpackServerConfig);
 
 export const nodemon = async () => {
   const stream = gulpNodemon({
-    script: 'server/index.mjs',
+    script: 'dist/server',
     watch: ['server/**/*.*', 'dist/request-handler.cjs'],
     exec: 'node --inspect',
   });
