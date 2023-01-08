@@ -2,7 +2,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 
 import { App } from 'src/shared/App';
 
-import type { RouteHandlerMethod, FastifyReply } from 'fastify';
+import type { RouteHandlerMethod } from 'fastify';
 import type { RenderToPipeableStreamOptions } from 'react-dom/server';
 
 export const requestHandler: RouteHandlerMethod = (req, res) => {
@@ -16,9 +16,26 @@ export const requestHandler: RouteHandlerMethod = (req, res) => {
   };
 
   const stream = renderToPipeableStream(
-    <div id="root">
-      <App />
-    </div>,
+    <html>
+      <head>
+        <meta charSet="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link
+          rel="shortcut icon"
+          type="image/x-icon"
+          href="/public/favicon.ico"
+        />
+        <title>Isomof</title>
+      </head>
+      <body>
+        <div id="root">
+          <App />
+        </div>
+      </body>
+    </html>,
     options
   );
 };

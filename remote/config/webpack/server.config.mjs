@@ -24,6 +24,7 @@ export default merge(common({ isServer: true }), {
     filename: 'js/[name].js',
     libraryTarget: 'commonjs-module',
     publicPath: '/',
+    clean: true,
   },
   externals: [nodeExternals()],
   plugins: [

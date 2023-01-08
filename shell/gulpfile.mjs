@@ -29,7 +29,7 @@ export const server = () => {
     );
   });
   return new Promise((resolve) => {
-    serverCompiler.hooks.done.tap('server', () => resolve());
+    serverCompiler.hooks.done.tap('server', resolve);
   });
 };
 
@@ -46,7 +46,7 @@ export const client = () => {
     );
   });
   return new Promise((resolve) => {
-    clientCompiler.hooks.done.tap('client', () => resolve());
+    clientCompiler.hooks.done.tap('client', resolve);
   });
 };
 

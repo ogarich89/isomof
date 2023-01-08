@@ -38,7 +38,7 @@ export default merge(common(), {
     new UniversalFederationPlugin(
       {
         remotes: {
-          remote: 'remote@http://localhost:3001/remoteEntry.js',
+          remote: 'remote@http://localhost:3001/client/remoteEntry.js',
         },
       },
       null

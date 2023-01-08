@@ -24,7 +24,7 @@ export default merge(common(), {
   devServer: {
     allowedHosts: 'all',
     static: {
-      directory: resolve(__dirname, 'public'),
+      directory: resolve(__dirname, '../../dist'),
     },
     historyApiFallback: true,
     compress: false,
@@ -34,7 +34,7 @@ export default merge(common(), {
     },
   },
   output: {
-    path: resolve(__dirname, '../../dist'),
+    path: resolve(__dirname, '../../dist/client'),
     filename: isDevelopment ? 'js/[name].js' : 'js/[name].[contenthash].js',
     chunkFilename: isDevelopment
       ? 'js/[name].js'
