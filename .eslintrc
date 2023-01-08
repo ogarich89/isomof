@@ -88,5 +88,13 @@
   },
   "parserOptions": {
     "sourceType": "module"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*/config/**/*.*", "shell/server/**/*.*"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
 }

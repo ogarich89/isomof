@@ -6,7 +6,6 @@ import { merge } from 'webpack-merge';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
-// eslint-disable-next-line no-restricted-imports
 import packageJson from '../../package.json' assert { type: 'json' };
 
 import { common } from './common.config.mjs';
