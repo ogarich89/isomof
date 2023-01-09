@@ -51,6 +51,12 @@ export default merge(common(), {
           'react-dom': {
             requiredVersion: dependencies['react-dom'],
           },
+          i18next: {
+            requiredVersion: dependencies.i18next,
+          },
+          'react-i18next': {
+            requiredVersion: dependencies['react-i18next'],
+          },
         },
       },
       null

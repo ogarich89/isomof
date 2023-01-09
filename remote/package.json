@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "author": "ogarich89@icloud.com",
   "dependencies": {
+    "i18next": "^22.4.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^12.1.4"
   },
   "devDependencies": {
     "@module-federation/node": "^0.9.11",

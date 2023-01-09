@@ -24,3 +24,6 @@ declare module '*.jpg' {
   const content: string;
   export default content;
 }
+
+declare var initialLanguage: string;
+declare var initialI18nStore: Record<string, any>;
