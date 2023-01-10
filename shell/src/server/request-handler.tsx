@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
-import remoteLocales from 'remote/locales';
 import serialize from 'serialize-javascript';
 
 import { i18nextOptions, getResources } from 'src/i18n';
@@ -15,6 +14,11 @@ i18next.use(initReactI18next);
 
 export const requestHandler: RouteHandlerMethod = (req, res) => {
   (async () => {
+    const { default: remoteLocales } = await import('remote/locales').catch(
+      () => ({
+        default: {},
+      })
+    );
     const lng = req.session.get<string>('lng') || 'en';
     await i18next.init({
       ...i18nextOptions,

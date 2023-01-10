@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Shell } from './components/Shell';
 import { Header } from './layouts/Header';
 
@@ -12,9 +13,11 @@ export const App: FunctionComponent = () => {
     <>
       <Header />
       <Shell />
-      <Suspense fallback="Loading...">
-        <Remote />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback="Loading...">
+          <Remote />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };
