@@ -1,3 +1,6 @@
+import { useTranslation } from 'react-i18next';
+
 export const Shell = () => {
-  return <h1>Shell</h1>;
+  const { t } = useTranslation();
+  return <h1>{t('hello')}</h1>;
 };

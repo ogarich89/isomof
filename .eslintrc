@@ -91,7 +91,7 @@
   },
   "overrides": [
     {
-      "files": ["*/config/**/*.*", "shell/server/**/*.*"],
+      "files": ["*/config/**/*.*"],
       "rules": {
         "no-restricted-imports": "off"
       }
