@@ -1,22 +1,38 @@
 import i18next from 'i18next';
-import Backend from 'i18next-http-backend';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import serialize from 'serialize-javascript';
 
 import i18nextOptions from 'src/i18n';
+import locales from 'src/locales';
 import { App } from 'src/shared/App';
 
 import type { RouteHandlerMethod } from 'fastify';
-import type { InitOptions } from 'i18next';
 import type { RenderToPipeableStreamOptions } from 'react-dom/server';
 
-i18next.use(Backend);
 i18next.use(initReactI18next);
 
 export const requestHandler: RouteHandlerMethod = (req, res) => {
-  const lng = 'ru';
-  i18next.init({ ...i18nextOptions(true), lng } as InitOptions).then(() => {
+  (async () => {
+    const lng = 'ru';
+    const { default: remote } = await import('remote/locales');
+    await i18next.init({
+      ...i18nextOptions,
+      lng,
+      resources: [remote].reduce((acc, { en, ru }) => {
+        return {
+          ...acc,
+          en: {
+            ...acc.en,
+            ...en,
+          },
+          ru: {
+            ...acc.ru,
+            ...ru,
+          },
+        };
+      }, locales),
+    });
     const options: RenderToPipeableStreamOptions = {
       onAllReady() {
         res.statusCode = 200;
@@ -59,5 +75,5 @@ export const requestHandler: RouteHandlerMethod = (req, res) => {
       </html>,
       options
     );
-  });
+  })();
 };

@@ -14,6 +14,11 @@ declare module 'remote/Remote' {
   const content: FunctionComponent<any>;
   export default content;
 }
+declare module 'remote/locales' {
+  import type { Resource } from 'i18next';
+  const content: Resource;
+  export default content;
+}
 
 declare module '*.png' {
   const content: string;

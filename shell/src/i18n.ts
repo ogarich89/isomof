@@ -1,15 +1,11 @@
-export default (isServer = false) => ({
+import type { InitOptions } from 'i18next';
+
+export default {
   fallbackLng: false,
   interpolation: {
     escapeValue: false,
   },
-  backend: {
-    loadPath: `${
-      isServer ? 'http://localhost:3000' : ''
-    }/public/locales/{{lng}}/{{ns}}.json`,
-  },
-  debug: false,
   react: {
     useSuspense: false,
   },
-});
+} as InitOptions;

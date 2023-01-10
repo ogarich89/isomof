@@ -1,10 +1,15 @@
+import moduleFederation from '@module-federation/node';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 
+import packageJson from '../../package.json' assert { type: 'json' };
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const isDevelopment = process.env.NODE_ENV !== 'production';
+const { UniversalFederationPlugin } = moduleFederation;
+const { dependencies } = packageJson;
 
 const common = ({ isServer } = {}) => ({
   resolve: {
@@ -106,6 +111,42 @@ const common = ({ isServer } = {}) => ({
       },
     ],
   },
+  plugins: [
+    new UniversalFederationPlugin(
+      {
+        name: 'remote',
+        filename: 'remoteEntry.js',
+        isServer: isServer,
+        ...(isServer
+          ? { library: { type: 'commonjs-module' }, remotes: {} }
+          : {}),
+        exposes: {
+          './Remote': './components/Remote',
+          './locales': './locales',
+        },
+        shared: {
+          ...dependencies,
+          react: {
+            singleton: true,
+            requiredVersion: dependencies.react,
+          },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: dependencies['react-dom'],
+          },
+          i18next: {
+            singleton: true,
+            requiredVersion: dependencies.i18next,
+          },
+          'react-i18next': {
+            singleton: true,
+            requiredVersion: dependencies['react-i18next'],
+          },
+        },
+      },
+      null
+    ),
+  ],
 });
 
 export { common };
