@@ -20,7 +20,6 @@ export default merge(common({ isServer: true }), {
     splitChunks: false,
   },
   output: {
-    clean: true,
     path: resolve(__dirname, '../../dist'),
     filename: 'server.js',
     libraryTarget: 'commonjs-module',

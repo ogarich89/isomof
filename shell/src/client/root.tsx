@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import { hydrateRoot } from 'react-dom/client';
 import { withSSR, initReactI18next } from 'react-i18next';
 
-import i18nextOptions from 'src/i18n';
+import { i18nextOptions } from 'src/i18n';
 import { App } from 'src/shared/App';
 
 i18next.use(initReactI18next);

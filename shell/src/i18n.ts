@@ -1,6 +1,6 @@
-import type { InitOptions } from 'i18next';
+import type { InitOptions, Resource } from 'i18next';
 
-export default {
+export const i18nextOptions: InitOptions = {
   fallbackLng: false,
   interpolation: {
     escapeValue: false,
@@ -8,4 +8,20 @@ export default {
   react: {
     useSuspense: false,
   },
-} as InitOptions;
+};
+
+export const getResources = (...locales: Resource[]) =>
+  locales.reduce(
+    (acc, { en, ru }) => ({
+      ...acc,
+      en: {
+        ...acc.en,
+        ...en,
+      },
+      ru: {
+        ...acc.ru,
+        ...ru,
+      },
+    }),
+    {}
+  );

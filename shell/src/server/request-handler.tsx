@@ -1,10 +1,11 @@
 import i18next from 'i18next';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
+import remoteLocales from 'remote/locales';
 import serialize from 'serialize-javascript';
 
-import i18nextOptions from 'src/i18n';
-import locales from 'src/locales';
+import { i18nextOptions, getResources } from 'src/i18n';
+import shellLocales from 'src/locales';
 import { App } from 'src/shared/App';
 
 import type { RouteHandlerMethod } from 'fastify';
@@ -14,24 +15,11 @@ i18next.use(initReactI18next);
 
 export const requestHandler: RouteHandlerMethod = (req, res) => {
   (async () => {
-    const lng = 'ru';
-    const { default: remote } = await import('remote/locales');
+    const lng = req.session.get<string>('lng') || 'en';
     await i18next.init({
       ...i18nextOptions,
       lng,
-      resources: [remote].reduce((acc, { en, ru }) => {
-        return {
-          ...acc,
-          en: {
-            ...acc.en,
-            ...en,
-          },
-          ru: {
-            ...acc.ru,
-            ...ru,
-          },
-        };
-      }, locales),
+      resources: getResources(shellLocales, remoteLocales),
     });
     const options: RenderToPipeableStreamOptions = {
       onAllReady() {

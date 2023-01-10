@@ -2,6 +2,7 @@ import fastify from 'fastify';
 
 import { register } from './register';
 import { requestHandler } from './request-handler';
+import { routes } from './routes';
 
 const app = fastify({
   logger: {
@@ -10,6 +11,15 @@ const app = fastify({
 });
 
 register(app);
+
+routes.forEach(({ url, method, handler, schema }) => {
+  app.route({
+    method,
+    url,
+    handler,
+    schema,
+  });
+});
 
 app.get('*', {}, requestHandler);
 
