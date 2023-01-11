@@ -16,6 +16,9 @@ export default merge(common({ isServer: true }), {
     __dirname: false,
     __filename: false,
   },
+  optimization: {
+    splitChunks: false,
+  },
   output: {
     path: resolve(__dirname, '../../dist/server'),
     filename: 'index.js',
