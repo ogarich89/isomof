@@ -47,7 +47,6 @@ export const requestHandler: RouteHandlerMethod = (req, res) => {
             type="image/x-icon"
             href="/public/favicon.ico"
           />
-          <link rel="stylesheet" href="/dist/css/root_tsx.css" />
           <title>Isomof</title>
         </head>
         <body>

@@ -2,6 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import { session } from 'src/shared/session';
 
+import style from './Header.scss';
+
 import type { FunctionComponent } from 'react';
 
 export const Header: FunctionComponent = () => {
@@ -13,7 +15,7 @@ export const Header: FunctionComponent = () => {
   };
 
   return (
-    <header>
+    <header className={style.header}>
       <ul>
         <li>
           <span onClick={() => changeLanguage('ru')}>ru</span>
