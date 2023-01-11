@@ -20,8 +20,8 @@ export default merge(common({ isServer: true }), {
     splitChunks: false,
   },
   output: {
-    path: resolve(__dirname, '../../dist'),
-    filename: 'server.js',
+    path: resolve(__dirname, '../../dist/server'),
+    filename: 'index.js',
     libraryTarget: 'commonjs-module',
   },
   externals: [nodeExternals()],

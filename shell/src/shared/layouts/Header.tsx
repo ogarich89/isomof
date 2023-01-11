@@ -11,6 +11,7 @@ export const Header: FunctionComponent = () => {
     await i18n.changeLanguage(lng);
     await session.set('language', { lng });
   };
+
   return (
     <header>
       <ul>

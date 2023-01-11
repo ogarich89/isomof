@@ -118,7 +118,7 @@ const common = ({ isServer } = {}) => ({
         isServer,
         remotes: {
           remote: `remote@http://localhost:3001/${
-            isServer ? 'server' : 'client'
+            isServer ? 'server' : ''
           }/remoteEntry.js`,
         },
         shared: {

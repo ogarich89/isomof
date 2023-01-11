@@ -1,7 +1,7 @@
 import type { InitOptions, Resource } from 'i18next';
 
 export const i18nextOptions: InitOptions = {
-  fallbackLng: false,
+  fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
   },

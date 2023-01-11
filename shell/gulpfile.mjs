@@ -10,7 +10,7 @@ const serverCompiler = webpack(webpackServerConfig);
 export const nodemon = async () => {
   const stream = gulpNodemon({
     script: 'dist/server',
-    watch: ['server/**/*.*', 'dist/request-handler.cjs'],
+    watch: ['dist/server/*.*'],
     exec: 'node --inspect',
   });
   stream.on('crash', () => stream.emit('restart', 300));

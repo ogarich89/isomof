@@ -10,7 +10,14 @@ i18next.use(initReactI18next);
 
 i18next.init({
   lng: 'en',
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
   resources: locales,
+  react: {
+    useSuspense: false,
+  },
 });
 export const App: FunctionComponent = () => {
   return <Remote />;

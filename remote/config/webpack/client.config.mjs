@@ -15,9 +15,6 @@ export default merge(common(), {
   context: resolve(__dirname, '../../src'),
   entry: './index.ts',
   devServer: {
-    devMiddleware: {
-      writeToDisk: true,
-    },
     allowedHosts: 'all',
     static: {
       directory: resolve(__dirname, '../../dist'),
@@ -30,7 +27,7 @@ export default merge(common(), {
     },
   },
   output: {
-    path: resolve(__dirname, '../../dist/client'),
+    path: resolve(__dirname, '../../dist'),
     filename: isDevelopment ? 'js/[name].js' : 'js/[name].[contenthash].js',
     chunkFilename: isDevelopment
       ? 'js/[name].js'
@@ -39,7 +36,6 @@ export default merge(common(), {
     assetModuleFilename: isDevelopment
       ? 'assets/[name].[ext]'
       : 'assets/[name].[contenthash].[ext]',
-    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
