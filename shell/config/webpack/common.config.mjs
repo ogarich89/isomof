@@ -27,6 +27,9 @@ const common = ({ isServer } = {}) => ({
     children: false,
     warnings: true,
   },
+  optimization: {
+    splitChunks: false,
+  },
   mode: isDevelopment ? 'development' : 'production',
   module: {
     rules: [
@@ -117,9 +120,9 @@ const common = ({ isServer } = {}) => ({
       {
         isServer,
         remotes: {
-          remote: `remote@http://localhost:3001/${
-            isServer ? 'server' : ''
-          }/remoteEntry.js`,
+          remote: `remote@http://localhost:3001${
+            isServer ? '/server/' : '/'
+          }remoteEntry.js`,
         },
         shared: {
           react: {

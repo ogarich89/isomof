@@ -1,9 +1,9 @@
+import { i18nextOptions, getResources } from '@isomof/config/i18next';
 import i18next from 'i18next';
 import { renderToPipeableStream } from 'react-dom/server';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import serialize from 'serialize-javascript';
 
-import { i18nextOptions, getResources } from 'src/i18n';
 import shellLocales from 'src/locales';
 import { App } from 'src/shared/App';
 
@@ -47,6 +47,7 @@ export const requestHandler: RouteHandlerMethod = (req, res) => {
             type="image/x-icon"
             href="/public/favicon.ico"
           />
+          <link rel="stylesheet" href="/dist/css/root_tsx.css" />
           <title>Isomof</title>
         </head>
         <body>

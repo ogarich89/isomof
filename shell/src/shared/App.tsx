@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 
+import './App.scss';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Shell } from './components/Shell';
 import { Header } from './layouts/Header';

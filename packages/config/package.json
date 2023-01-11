@@ -1,0 +1,8 @@
+{
+  "name": "@isomof/config",
+  "version": "1.0.0",
+  "author": "ogarich89@icloud.com",
+  "dependencies": {
+    "reset-css": "^5.0.1"
+  }
+}

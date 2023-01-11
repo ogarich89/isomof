@@ -16,11 +16,11 @@ const register = (app: FastifyInstance) => {
   });
 
   app.register(serve, {
-    root: resolve(__dirname, '../public'),
+    root: resolve(__dirname, '../../public'),
     prefix: '/public',
   });
   app.register(serve, {
-    root: resolve(__dirname, '../dist'),
+    root: resolve(__dirname, '../../dist'),
     prefix: '/dist',
     decorateReply: false,
   });

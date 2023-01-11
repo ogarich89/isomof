@@ -8,7 +8,8 @@
   },
   "workspaces": [
     "shell",
-    "remote"
+    "remote",
+    "packages/*"
   ],
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.0",
